@@ -42,52 +42,51 @@ void freeAllKeepers(Keeper** keepers, int& numOfKeepers);
 
 int main(int argc, const char * argv[]) {
 
-	//try
-	//{
-	//	Area quarentineArea("quarentineArea", 4, 4);
-	//	Zoo myZoo("My Zoo", 10, quarentineArea);
+	try
+	{		
+		Zoo myZoo("My Zoo", 10);
+		
+		int numOfManagers;
+		AreaManager** managers = createAreaManagers(numOfManagers);
 
-	//	int numOfManagers;
-	//	AreaManager** managers = createAreaManagers(numOfManagers);
+		int numOfAreas;
+		Area** areas = createAllAreas(managers, numOfAreas);
 
-	//	int numOfAreas;
-	//	Area** areas = createAllAreas(managers, numOfAreas);
+		// add all areas
+		addAreasToZoo(myZoo, areas, numOfAreas);
 
-	//	// add all areas
-	//	addAreasToZoo(myZoo, areas, numOfAreas);
+		int numOfAnimals;
+		Animal** animals = createAnimals(numOfAnimals);
 
-	//	int numOfAnimals;
-	//	Animal** animals = createAnimals(numOfAnimals);
+		// add animals
+		addAllAnimalsToZoo(myZoo, animals, numOfAnimals);
 
-	//	// add animals
-	//	addAllAnimalsToZoo(myZoo, animals, numOfAnimals);
+		int numOfKeepers;
+		Keeper** keepers = createAllKeepers(numOfKeepers);
 
-	//	int numOfKeepers;
-	//	Keeper** keepers = createAllKeepers(numOfKeepers);
+		// add all the keepers
+		addKeepersToZoo(myZoo, keepers, numOfKeepers);
 
-	//	// add all the keepers
-	//	addKeepersToZoo(myZoo, keepers, numOfKeepers);
+		int numOfVeterinarian;
+		Veterinarian** vets = createAllVeterinarian(numOfVeterinarian);
 
-	//	int numOfVeterinarian;
-	//	Veterinarian** vets = createAllVeterinarian(numOfVeterinarian);
+		// add all vets
+		addAllVeterinarianToZoo(myZoo, vets, numOfVeterinarian);
 
-	//	// add all vets
-	//	addAllVeterinarianToZoo(myZoo, vets, numOfVeterinarian);
+		// print the whole zoo
+		cout << "My Zoo: \n" << myZoo << endl;
 
-	//	// print the whole zoo
-	//	cout << "My Zoo: \n" << myZoo << endl;
-
-	//	// free all memory
-	//	freeAllAnimals(animals, numOfAnimals);
-	//	freeAllAreaManagers(managers, numOfManagers);
-	//	freeAllAreas(areas, numOfAreas);
-	//	freeAllKeepers(keepers, numOfKeepers);
-	//	freeAllVeterinarian(vets, numOfVeterinarian);
-	//}
-	//catch (const char* e)
-	//{
-	//	cout << e;
-	//}
+		// free all memory
+		freeAllAnimals(animals, numOfAnimals);
+		freeAllAreaManagers(managers, numOfManagers);
+		freeAllAreas(areas, numOfAreas);
+		freeAllKeepers(keepers, numOfKeepers);
+		freeAllVeterinarian(vets, numOfVeterinarian);
+	}
+	catch (const char* e)
+	{
+		cout << e;
+	}
 
 	return 0;
 }
@@ -97,9 +96,9 @@ AreaManager** createAreaManagers(int& numOfManagers)
 	numOfManagers = 3;
 	AreaManager** managers = new AreaManager*[numOfManagers];
 
-	/*managers[0] = new AreaManager("Yogev", 31235, 5000);
-	managers[1] = new AreaManager("Moshe", 51455, 4500);
-	managers[2] = new AreaManager("Roie", 84578, 4800);*/
+	managers[0] = new AreaManager("Yogev", 5000);
+	managers[1] = new AreaManager("Moshe", 4500);
+	managers[2] = new AreaManager("Roie", 4800);
 
 	return managers;
 }
@@ -153,9 +152,9 @@ Keeper** createAllKeepers(int& numOfKeepers)
 	numOfKeepers = 3;
 	Keeper** keepers = new Keeper*[numOfKeepers];
 
-	/*keepers[0] = new Keeper("Kipi", 312542, 7500, Keeper::eAnimal::PENGUIN);
-	keepers[1] = new Keeper("Keepi", 387542, 7500, Keeper::eAnimal::ELEPHANT);
-	keepers[2] = new Keeper("Keepee", 955642, 7500, Keeper::eAnimal::HORSE);*/
+	keepers[0] = new Keeper("Kipi", 7500, eAnimal::PENGUIN);
+	keepers[1] = new Keeper("Keepi", 7500, eAnimal::ELEPHANT);
+	keepers[2] = new Keeper("Keepee", 7500, eAnimal::HORSE);
 
 	return keepers;
 }
@@ -173,9 +172,9 @@ Veterinarian** createAllVeterinarian(int& numOfVeterinarian)
 	numOfVeterinarian = 3;
 	Veterinarian** vets = new Veterinarian*[numOfVeterinarian];
 
-	/*vets[0] = new Veterinarian("Vivi", 45875, 10000, 5);
-	vets[1] = new Veterinarian("Vuvu", 87457, 10000, 8);
-	vets[2] = new Veterinarian("Kobi", 26584, 10000, 10);*/
+	vets[0] = new Veterinarian("Vivi", 10000, 5);
+	vets[1] = new Veterinarian("Vuvu", 10000, 8);
+	vets[2] = new Veterinarian("Kobi", 10000, 10);
 
 	return vets;
 }

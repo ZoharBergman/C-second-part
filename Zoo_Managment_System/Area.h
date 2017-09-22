@@ -35,7 +35,7 @@ private:
 
 public:
 
-	Area(const char *name, int maxNumberOfAnimals, int maxNumberOfWorkers, const AreaManager* areaManager = NULL);
+	Area(const char *name, int maxNumberOfAnimals, int maxNumberOfWorkers, AreaManager* areaManager = nullptr);
 	~Area();	
 
 	inline const char* getName() const { return name; }
@@ -47,16 +47,18 @@ public:
 	inline long getMaxNumberOfWorkers() const { return maxNumberOfWorkers; }
 
 	inline const AreaManager& getAreaManager() const { return *areaManager; }
-	void setAreaManager(AreaManager& areaManager) { this->areaManager = &areaManager; }
+	void setAreaManager(AreaManager* areaManager);
 
-	void addAnimal(Animal& animal);
+	void addAnimal(Animal* animal);
+	void addWorker(Worker* worker);
 
-	void addWorker(Worker& worker);
+	void removeAnimal(const Animal* animal);
+	void removeWorker(const Worker* worker);
 
 	const Animal*const* getAllAnimals() const { return animals; }
 	const Worker*const* getAllworkers() const { return workers; }
 
-	const Area& operator+=(Animal& animal) { addAnimal(animal); return *this; }
+	const Area& operator+=(Animal* animal) { addAnimal(animal); return *this; }
 
 	bool operator<(const Area& other) const { return this->getMaxNumberOfAnimals() < other.getMaxNumberOfAnimals(); }
 
@@ -66,6 +68,9 @@ public:
 
 	friend ostream& operator<<(ostream& os, const Area& area);
 
+private:
+	int isWorkerExists(const Worker* worker);
+	int isAnimalExists(const Animal* animal);
 };
 
 

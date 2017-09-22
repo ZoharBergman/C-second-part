@@ -23,7 +23,7 @@ private:
 	const Keeper& operator=(const Keeper& keeper);
 
 public:
-	Keeper(const char *name, int salary, const Area* area, eAnimal specialty);	
+	Keeper(const char *name, int salary, eAnimal specialty, Area* area = nullptr);	
 
 	inline eAnimal getSpecialty() const { return specialty; }
 

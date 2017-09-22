@@ -1,9 +1,9 @@
 #include "Area.h"
 
-Area::Area(const char *name, int maxNumberOfAnimals, int maxNumberOfWorkers, const AreaManager* areaManager) :
+Area::Area(const char *name, int maxNumberOfAnimals, int maxNumberOfWorkers, AreaManager* areaManager) :
 name(_strdup(name)), maxNumberOfAnimals(maxNumberOfAnimals), maxNumberOfWorkers(maxNumberOfWorkers), numOfAnimals(0), numOfWorkers(0)
 {
-	//this->areaManager = areaManager;
+	setAreaManager(areaManager);
 	animals = new Animal*[maxNumberOfAnimals];
 	workers = new Worker*[maxNumberOfWorkers];
 }
@@ -29,20 +29,107 @@ Area::~Area()
 	delete[]workers;	
 }
 
-void Area::addAnimal(Animal& animal)
+void Area::setAreaManager(AreaManager* newAreaManager)
 {
-	if (numOfAnimals < maxNumberOfAnimals)
+	if (areaManager != newAreaManager)
 	{
-		animals[numOfAnimals++] = &animal;
+		if (areaManager != nullptr)
+		{
+			areaManager->setArea(nullptr);
+		}
+
+		areaManager = newAreaManager;
+		if (areaManager != nullptr)
+		{
+			areaManager->setArea(this);
+		}
 	}
 }
 
-void Area::addWorker(Worker& worker)
+void Area::addAnimal(Animal* animal)
 {
+	// Checking that there is enough place for another animal
+	if (numOfAnimals < maxNumberOfAnimals)
+	{
+		// Checking that the animal does not exists in this area
+		if (animal != nullptr && isAnimalExists(animal) == -1)
+		{
+			animals[numOfAnimals++] = animal;
+		}
+	}
+}
+
+void Area::addWorker(Worker* worker)
+{
+	// Checking that there is enough place for another wotker
 	if (numOfWorkers < maxNumberOfWorkers)
 	{
-		workers[numOfWorkers++] = &worker;
+		// Checking that the worker does not exists in this area
+		if (worker != nullptr && isWorkerExists(worker) == -1)
+		{
+			workers[numOfWorkers++] = worker;
+			worker->setArea(this);
+		}
 	}
+}
+
+void Area::removeAnimal(const Animal* animal)
+{
+	if (animal != nullptr)
+	{
+		int animalIndex = isAnimalExists(animal);
+
+		// In case the animal exists, we should reduce the array of animals according to the index of the removed animal
+		if(animalIndex != -1)
+		{
+			while (animalIndex < numOfAnimals - 1)
+			{
+				animals[animalIndex] = animals[++animalIndex];
+			}			
+
+			numOfAnimals--;
+		}
+	}
+}
+void Area::removeWorker(const Worker* worker)
+{
+	if (worker != nullptr)
+	{
+		int workerIndex = isWorkerExists(worker);
+
+		// In case the worker exists, we should reduce the array of workers according to the index of the removed worker
+		if(workerIndex != -1)
+		{
+			while (workerIndex < numOfWorkers - 1)
+			{
+				workers[workerIndex] = workers[++workerIndex];
+			}			
+
+			numOfWorkers--;
+		}
+	}
+}
+
+int Area::isWorkerExists(const Worker* worker)
+{
+	for (int i = 0; i < numOfWorkers; i++)
+	{
+		if(workers[i] == worker)
+			return i;
+	}
+
+	return -1;
+}
+
+int Area::isAnimalExists(const Animal* animal)
+{
+	for (int i = 0; i < numOfAnimals; i++)
+	{
+		if(animals[i] == animal)
+			return i;
+	}
+
+	return -1;
 }
 
 ostream& operator<<(ostream& os, const Area& area)

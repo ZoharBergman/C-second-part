@@ -19,7 +19,7 @@ private:
     const Veterinarian& operator=(const Veterinarian& veterinarian);
 
 public:
-    Veterinarian(const char *name, int salary, const Area* area, int yearsOfExperience);       
+    Veterinarian(const char *name, int salary, int yearsOfExperience, Area* area = nullptr);       
     
 	inline int getYearsOfExperience() const { return yearsOfExperience; }
     

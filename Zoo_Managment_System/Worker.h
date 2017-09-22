@@ -22,13 +22,13 @@ private:
     char *name;
     long idNumber;
     int salary;
-	const Area* area;
+	Area* area;
     Worker(const Worker& worker);
     const Worker& operator=(const Worker& worker);
 
 public:
     
-	Worker(const char *name, int salary, const Area* area = NULL);
+	Worker(const char *name, int salary, Area* area = nullptr);
 	~Worker(){ delete []name; }        
     
 	inline const char* getName() const { return name; }
@@ -39,7 +39,7 @@ public:
 	void setSalary(int salary) { this->salary = salary; }
     
 	inline const Area& getArea() const { return *area; }
-	void setArea(const Area& area){ this->area = &area; }
+	void setArea(Area* area);
     
     friend ostream& operator<<(ostream& os, const Worker& worker);
     

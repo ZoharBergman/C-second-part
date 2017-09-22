@@ -1,6 +1,6 @@
 #include "Veterinarian.h"
 
-Veterinarian::Veterinarian(const char *name, int salary, const Area* area, int yearsOfExperience) : 
+Veterinarian::Veterinarian(const char *name, int salary, int yearsOfExperience, Area* area) : 
 												Worker(name, salary, area), yearsOfExperience(yearsOfExperience){};
 
 ostream& operator<<(ostream& os, const Veterinarian& veterinarian)

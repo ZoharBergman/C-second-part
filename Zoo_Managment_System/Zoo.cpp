@@ -31,7 +31,7 @@ void Zoo::addAnimal(Animal& animal, const char* areaName)
 	{
 		if (strcmp(areas[i]->getName(), areaName) == 0)
 		{
-			areas[i]->addAnimal(animal);
+			areas[i]->addAnimal(&animal);
 		}
 	}
 }
@@ -42,7 +42,7 @@ void Zoo::addWorker(Worker& worker, const char* areaName)
 	{
 		if (strcmp(areas[i]->getName(), areaName) == 0)
 		{
-			areas[i]->addWorker(worker);
+			areas[i]->addWorker(&worker);
 		}
 	}
 }

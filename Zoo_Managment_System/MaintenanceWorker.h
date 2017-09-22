@@ -18,8 +18,7 @@ private:
     const MaintenanceWorker& operator=(const MaintenanceWorker& maintenanceWorker);
 
 public:
-
-	MaintenanceWorker(const char *name, int salary, const Area* area);       
+	MaintenanceWorker(const char *name, int salary, Area* area = nullptr);       
     
 };
 
