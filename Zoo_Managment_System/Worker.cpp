@@ -1,7 +1,9 @@
 #include "Worker.h"
 #include "Area.h"
 
-Worker::Worker(const char *name, int salary, Area* area) : name(_strdup(name)), salary(salary), idNumber(idCounter++)
+long Worker::idCounter = 0;
+
+Worker::Worker(const char *name, int salary, Area* area) : name(_strdup(name)), salary(salary), idNumber(Worker::idCounter++), area(nullptr)
 {
 	setArea(area);
 }
@@ -12,9 +14,12 @@ void Worker::setArea(Area* newArea)
 	if(area != newArea)
 	{
 		// Remove this worker from the old area
-		if(newArea != nullptr)
+		if(area != nullptr)
 		{
-			area->removeWorker(this);
+			if (typeid(*this) != typeid(AreaManager))
+			{
+				area->removeWorker(this);
+			}
 		}
 
 		// Setting the area of this worker to the new area
@@ -30,7 +35,11 @@ void Worker::setArea(Area* newArea)
 
 ostream& operator<<(ostream& os, const Worker& worker)
 {
-	os << "Name: " << worker.getName() << ", Id number: " << worker.getIdNumber() 
-	   << ", Salary: " << worker.getSalary() << ", Area: " << worker.getArea();
+	if (&worker != nullptr)
+	{
+		os << typeid(worker).name()+6 << ": Name: " << worker.getName() << ", Id number: " << worker.getIdNumber() 
+			<< ", Salary: " << worker.getSalary();
+	}
+
 	return os;
 }

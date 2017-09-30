@@ -18,12 +18,10 @@ private:
 	Zebroid(const Zebroid& zebroid);
     const Zebroid& operator=(const Zebroid& zebroid);
 
-public:
+public:    
+	Zebroid(const char *name, float weight, int birthYear, int numOfStrips, float sizeOfHorseShoe);
     
-	Zebroid(const char *name, float weight, int birthYear, int numOfStrips, float sizeOfHorseShoe);        
-    
-    friend ostream& operator<<(ostream& os, const Zebroid& zebroid);
-    
+    virtual void toOs(ostream& os) const;
 };
 
 #endif /* __ZEBROID_H */

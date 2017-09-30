@@ -15,18 +15,16 @@ class Giraffe : public Animal
 {
 
 private:
-    
     float lengthOfNeck;
     Giraffe(const Giraffe& giraffe);
     const Giraffe& operator=(const Giraffe& giraffe);
 
 public:
+	Giraffe(const char *name, float weight, int birthYear, float lengthOfNeck);
     
-	Giraffe(const char *name, float weight, int birthYear, float lengthOfNeck);        
+	inline float getLengthOfNeck() const { return lengthOfNeck; }
     
-    inline float getLengthOfNeck() const;
-    
-    friend ostream& operator<<(ostream& os, const Giraffe& giraffe);
+    virtual void toOs(ostream& os) const;
     
 };
 

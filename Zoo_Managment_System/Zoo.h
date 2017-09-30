@@ -41,6 +41,7 @@ public:
     void addWorker(Worker& worker, const char* areaName);
     
 	const Area*const* getAllAreas() const { return areas; }
+	Area*const* getAllAreas() { return areas; }
     
 	const Zoo& operator+(Area& area) { addArea(area); return *this; }
     

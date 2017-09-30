@@ -18,7 +18,8 @@ private:
     const AreaManager& operator=(const AreaManager& areaManager);
 
 public:
-	AreaManager(const char *name, int salary, Area* area = nullptr);            
+	AreaManager(const char *name, int salary, Area* area = nullptr);     
+	virtual void setArea(Area* newArea);
 };
 
 

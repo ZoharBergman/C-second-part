@@ -79,13 +79,21 @@
     <ClInclude Include="Zoo.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Animal.cpp" />
     <ClCompile Include="Area.cpp" />
     <ClCompile Include="AreaManager.cpp" />
+    <ClCompile Include="Elephant.cpp" />
+    <ClCompile Include="Giraffe.cpp" />
+    <ClCompile Include="Horse.cpp" />
     <ClCompile Include="Keeper.cpp" />
+    <ClCompile Include="Lion.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MaintenanceWorker.cpp" />
+    <ClCompile Include="Penguin.cpp" />
     <ClCompile Include="Veterinarian.cpp" />
     <ClCompile Include="Worker.cpp" />
+    <ClCompile Include="Zebra.cpp" />
+    <ClCompile Include="Zebroid.cpp" />
     <ClCompile Include="Zoo.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

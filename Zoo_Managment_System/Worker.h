@@ -17,9 +17,9 @@ class Area;
 
 class Worker
 {
-private:
-	static long idCounter;   
-    char *name;
+protected:	
+	static long idCounter;
+	char *name;
     long idNumber;
     int salary;
 	Area* area;
@@ -29,7 +29,7 @@ private:
 public:
     
 	Worker(const char *name, int salary, Area* area = nullptr);
-	~Worker(){ delete []name; }        
+	virtual ~Worker(){ delete []name; }        
     
 	inline const char* getName() const { return name; }
     
@@ -39,10 +39,11 @@ public:
 	void setSalary(int salary) { this->salary = salary; }
     
 	inline const Area& getArea() const { return *area; }
-	void setArea(Area* area);
+	inline Area& getArea() { return *area; }
+	virtual void setArea(Area* newArea);
     
     friend ostream& operator<<(ostream& os, const Worker& worker);
     
 };
-long Worker::idCounter = 0;
+
 #endif /* __WORKER_H */

@@ -9,7 +9,7 @@ Zoo::~Zoo()
 {
 	delete[]name;
 
-	for (int i = 0; i < maxNumOfAreas; i++)
+	for (int i = 0; i < numOfAreas; i++)
 	{
 		delete areas[i];
 	}
@@ -49,16 +49,20 @@ void Zoo::addWorker(Worker& worker, const char* areaName)
 
 ostream& operator<<(ostream& os, const Zoo& zoo)
 {
-	os << "Name: " << zoo.getName() << ", Max number of areas: " << zoo.getMaxNumOfAreas() << ", Number of areas: " << zoo.getNumOfAreas() << ", Areas: {";
-
-	const Area*const* areas = zoo.getAllAreas();
-
-	for (int i = 0; i < zoo.getNumOfAreas(); i++)
+	if (&zoo != nullptr)
 	{
-		os << "{" <<*areas[i] << "}, ";
-	}
+		os << "Name: " << zoo.getName() << endl << "Max number of areas: " << zoo.getMaxNumOfAreas()
+			<< endl << "Number of areas: " << zoo.getNumOfAreas() << endl << "Areas: " << endl;
 
-	os << "}";
+		const Area*const* areas = zoo.getAllAreas();
 
+		for (int i = 0; i < zoo.getNumOfAreas(); i++)
+		{
+			os << "{" << *areas[i] << "}";
+
+			if (i < zoo.getNumOfAreas() - 1)
+				os << "," << endl;
+		}
+	} 
 	return os;
 }

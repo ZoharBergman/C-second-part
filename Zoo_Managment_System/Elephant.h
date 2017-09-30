@@ -24,12 +24,12 @@ private:
 
 public:
     
-	Elephant(const char *name, float weight, int birthYear, float sizeOfEars, float lengthOfTrunk);      
+	Elephant(const char *name, float weight, int birthYear, float sizeOfEars, float lengthOfTrunk);
     
-    inline float getSizeOfEars() const;
-    inline float getLengthOfTrunk() const;
+	inline float getSizeOfEars() const { return sizeOfEars; }
+	inline float getLengthOfTrunk() const { return lengthOfTrunk; }
     
-    friend ostream& operator<<(ostream& os, const Elephant& elephant);
+	virtual void toOs(ostream& os) const;    
     
 };
 

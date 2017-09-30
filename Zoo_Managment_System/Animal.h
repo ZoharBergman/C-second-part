@@ -10,7 +10,6 @@
 #define __ANIMAL_H
 
 #include <iostream>
-#include "Area.h"
 
 using namespace std;
 
@@ -18,27 +17,25 @@ class Animal
 {
     
 private:
-    
     char *name;
     float weight;
     int birthYear;
-    Area* area;
 	Animal(const Animal& animal);
     const Animal& operator=(const Animal& animal);
     
 public:
+	Animal(float weight, int birthYear, const char *name = nullptr);
+	virtual ~Animal() { delete []name; }
     
-	Animal(const char *name, float weight, int birthYear, const Area* area = nullptr);
-    ~Animal();        
+	inline const char* getName() const { return name; }
     
-    inline const char* getName() const;
+	inline float getWeight() const { return weight; }
     
-    inline float getWeight() const;
-    
-    inline int getBirthYear() const;
+	inline int getBirthYear() const { return birthYear; }
     
     friend ostream& operator<<(ostream& os, const Animal& animal);
 
+	virtual void toOs(ostream& os) const {};
 };
 
 #endif /* __ANIMAL_H */

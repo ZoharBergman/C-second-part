@@ -1,11 +1,12 @@
 #include "Area.h"
 
 Area::Area(const char *name, int maxNumberOfAnimals, int maxNumberOfWorkers, AreaManager* areaManager) :
-name(_strdup(name)), maxNumberOfAnimals(maxNumberOfAnimals), maxNumberOfWorkers(maxNumberOfWorkers), numOfAnimals(0), numOfWorkers(0)
+	name(_strdup(name)), maxNumberOfAnimals(maxNumberOfAnimals), maxNumberOfWorkers(maxNumberOfWorkers), 
+	numOfAnimals(0), numOfWorkers(0), areaManager(nullptr)
 {
-	setAreaManager(areaManager);
 	animals = new Animal*[maxNumberOfAnimals];
 	workers = new Worker*[maxNumberOfWorkers];
+	setAreaManager(areaManager);	
 }
 
 Area::~Area()
@@ -13,7 +14,7 @@ Area::~Area()
 	delete[]name;
 
 	// Delete animals
-	for (int i = 0; i < maxNumberOfAnimals; i++)
+	for (int i = 0; i < numOfAnimals; i++)
 	{
 		delete animals[i];
 	}
@@ -21,12 +22,15 @@ Area::~Area()
 	delete[]animals;
 
 	// Delete workers
-	for (int i = 0; i < maxNumberOfWorkers; i++)
+	for (int i = 0; i < numOfWorkers; i++)
 	{
 		delete workers[i];
 	}
 
 	delete[]workers;	
+
+	// Delete area manager
+	delete areaManager;
 }
 
 void Area::setAreaManager(AreaManager* newAreaManager)
@@ -39,6 +43,7 @@ void Area::setAreaManager(AreaManager* newAreaManager)
 		}
 
 		areaManager = newAreaManager;
+
 		if (areaManager != nullptr)
 		{
 			areaManager->setArea(this);
@@ -84,7 +89,7 @@ void Area::removeAnimal(const Animal* animal)
 		{
 			while (animalIndex < numOfAnimals - 1)
 			{
-				animals[animalIndex] = animals[++animalIndex];
+				animals[animalIndex++] = animals[animalIndex + 1];
 			}			
 
 			numOfAnimals--;
@@ -102,7 +107,7 @@ void Area::removeWorker(const Worker* worker)
 		{
 			while (workerIndex < numOfWorkers - 1)
 			{
-				workers[workerIndex] = workers[++workerIndex];
+				workers[workerIndex++] = workers[workerIndex + 1];
 			}			
 
 			numOfWorkers--;
@@ -134,26 +139,33 @@ int Area::isAnimalExists(const Animal* animal)
 
 ostream& operator<<(ostream& os, const Area& area)
 {
-	os << "Name: " << area.getName() << ", Max number of animals: " << area.getMaxNumberOfAnimals() << ", Number of animals: " << area.getNumOfAnimals()
-		<< ", Max num of workers: " << area.getMaxNumberOfWorkers() << ", Number of workers: " << area.getNumOfWorkers() << ", Area manager: {" << area.getAreaManager() << "}, Animals: {";
-
-	const Animal*const* animals = area.getAllAnimals();
-
-	for (int i = 0; i < area.getNumOfAnimals(); i++)
+	if (&area != nullptr)
 	{
-		os << "{" << *(animals[i]) << "}, ";
+		os << "Name: " << area.getName() << ", Max number of animals: " << area.getMaxNumberOfAnimals() << ", Number of animals: " << area.getNumOfAnimals()
+			<< ", Max number of workers: " << area.getMaxNumberOfWorkers() << ", Number of workers: " << area.getNumOfWorkers() << ", Area manager: {" << *area.getAreaManager() << "}, Animals: {";
+
+		const Animal*const* animals = area.getAllAnimals();
+
+		for (int i = 0; i < area.getNumOfAnimals(); i++)
+		{
+			os << "{" << *(animals[i]) << "}, ";
+		}
+
+		os << '\b' << '\b';
+
+		os << "}, Workers: {";
+
+		const Worker*const* workers = area.getAllworkers();
+
+		for (int i = 0; i < area.getNumOfWorkers(); i++)
+		{
+			os << "{" << *(workers[i]) << "}, ";
+		}
+
+		os << '\b' << '\b';
+
+		os << "}";
 	}
-
-	os << "}, Workers: {";
-
-	const Worker*const* workers = area.getAllworkers();
-
-	for (int i = 0; i < area.getNumOfWorkers(); i++)
-	{
-		os << "{" << *(workers[i]) << "}, ";
-	}
-
-	os << "}";
 
 	return os;
 }

@@ -11,7 +11,8 @@
 
 #include "Animal.h"
 
-enum eSeaFood { SHRIMP, CRAB, FISH, CALAMARI };
+const static enum eSeaFood { SHRIMP, CRAB, FISH, CALAMARI };
+const static char* eSeaFoodText[] = {"Shrimp", "Crab", "Fish", "Calamari"};
 
 class Penguin : public Animal
 {
@@ -25,10 +26,10 @@ public:
     
 	Penguin(const char *name, float weight, int birthYear, eSeaFood favoriteFood);        
     
-    inline eSeaFood getFavoriteFood() const;
-    void setFavoriteFood(eSeaFood favoriteFood);
+	inline eSeaFood getFavoriteFood() const { return favoriteFood; }
+	void setFavoriteFood(eSeaFood favoriteFood) { this->favoriteFood = favoriteFood; }
     
-    friend ostream& operator<<(ostream& os, const Penguin& penguin);
+    virtual void toOs(ostream& os) const;
     
 };
 

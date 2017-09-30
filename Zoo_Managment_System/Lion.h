@@ -11,24 +11,22 @@
 
 #include "Animal.h"
 
-enum eManeColor { WHITE, BROWN, YELLOW, RED, ORANGE };
+const static enum eManeColor { WHITE, BROWN, YELLOW, RED, ORANGE };
+const static char* eManeColorText[] = {"White", "Brown", "Yellow", "Red", "Orange"};
 
 class Lion : public Animal
 {
 private:
-    
     eManeColor maneColor;
     Lion(const Lion& lion);
     const Lion& operator=(const Lion& lion);
 
 public:
-    
 	Lion(const char *name, float weight, int birthYear, eManeColor maneColor);        
     
-    inline eManeColor getManeColor() const;
+	inline eManeColor getManeColor() const { return maneColor; }
     
-    friend ostream& operator<<(ostream& os, const Lion& lion);
-    
+    virtual void toOs(ostream& os) const;
 };
 
 

@@ -4,6 +4,10 @@ Keeper::Keeper(const char *name, int salary, eAnimal specialty, Area* area) : Wo
 
 ostream& operator<<(ostream& os, const Keeper& keeper)
 {
-	os << (Worker&)keeper << ", Speciality: " << eAnimalsNames[keeper.getSpecialty()];
+	if (&keeper != nullptr)
+	{
+		os << (Worker&)keeper << ", Speciality: " << eAnimalsNames[keeper.getSpecialty()];
+	}
+
 	return os;
 }

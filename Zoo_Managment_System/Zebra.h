@@ -22,11 +22,10 @@ private:
 public:
     
 	Zebra(const char *name, float weight, int birthYear, int numOfStrips);        
+	
+	inline int getNumOfStrips() const { return numOfStrips; }
     
-    inline int getNumOfStrips() const;
-    
-    friend ostream& operator<<(ostream& os, const Zebra& zebra);
-    
+    virtual void toOs(ostream& os) const;
 };
 
 

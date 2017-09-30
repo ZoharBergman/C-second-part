@@ -8,9 +8,6 @@
 #pragma warning( disable : 4290 )
 #include <iostream>
 #include "Zoo.h"
-#include "Area.h"
-#include "Animal.h"
-#include "Worker.h"
 #include "AreaManager.h"
 #include "Veterinarian.h"
 #include "Keeper.h"
@@ -74,14 +71,7 @@ int main(int argc, const char * argv[]) {
 		addAllVeterinarianToZoo(myZoo, vets, numOfVeterinarian);
 
 		// print the whole zoo
-		cout << "My Zoo: \n" << myZoo << endl;
-
-		// free all memory
-		freeAllAnimals(animals, numOfAnimals);
-		freeAllAreaManagers(managers, numOfManagers);
-		freeAllAreas(areas, numOfAreas);
-		freeAllKeepers(keepers, numOfKeepers);
-		freeAllVeterinarian(vets, numOfVeterinarian);
+		cout << myZoo << endl;
 	}
 	catch (const char* e)
 	{
@@ -119,7 +109,8 @@ void addAreasToZoo(Zoo& zoo, Area** areas, int& numOfAreas)
 {
 	for (int i = 0; i < numOfAreas; i++)
 	{
-		zoo.addArea(*areas[i]);
+		//zoo.addArea(*areas[i]);
+		zoo = zoo + *areas[i];
 	}
 }
 
@@ -128,11 +119,11 @@ Animal** createAnimals(int& numOfAnimals)
 	numOfAnimals = 4;
 	Animal** animals = new Animal*[numOfAnimals];
 
-	/*animals[0] = new Horse("Horsy", 208.5f, 1998, 40.2f);
-	animals[1] = new Penguin("Pini", 1.2f, 2005, Penguin::eSeaFood::CRAB);
+	animals[0] = new Horse("Horsy", 208.5f, 1998, 40.2f);
+	animals[1] = new Penguin("Pini", 1.2f, 2005, eSeaFood::CRAB);
 	animals[2] = new Elephant("Eli", 2.5f, 2003, 1.35f, 2.75f);
-	animals[3] = new Zebroid("Zeze", 1.45f, 2010, 128, 38.6f);*/
-
+	animals[3] = new Zebroid("Zeze", 1.45f, 2010, 128, 38.6f);
+	
 	return animals;
 }
 

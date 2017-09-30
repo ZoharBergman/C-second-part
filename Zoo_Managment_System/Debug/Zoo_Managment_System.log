@@ -1,30 +1,32 @@
-﻿Build started 22/09/2017 18:33:30.
+﻿Build started 30/09/2017 16:25:54.
      1>Project "C:\Users\Zuzu\Desktop\זהר\אפקה\שנה ג\סמסטר קיץ\C++\פרוייקט\OtherStudentsImpl\Zoo_Managment_System\Zoo_Managment_System\Zoo_Managment_System.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp
-         main.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt Animal.cpp Area.cpp Keeper.cpp Worker.cpp
+         Worker.cpp
+         Keeper.cpp
+         Area.cpp
+         Animal.cpp
+         Generating Code...
        Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Zuzu\Desktop\זהר\אפקה\שנה ג\סמסטר קיץ\C++\פרוייקט\OtherStudentsImpl\Zoo_Managment_System\Debug\Zoo_Managment_System.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Zuzu\Desktop\זהר\אפקה\שנה ג\סמסטר קיץ\C++\פרוייקט\OtherStudentsImpl\Zoo_Managment_System\Debug\Zoo_Managment_System.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Zuzu\Desktop\זהר\אפקה\שנה ג\סמסטר קיץ\C++\פרוייקט\OtherStudentsImpl\Zoo_Managment_System\Debug\Zoo_Managment_System.lib" /MACHINE:X86 Debug\Area.obj
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Zuzu\Desktop\זהר\אפקה\שנה ג\סמסטר קיץ\C++\פרוייקט\OtherStudentsImpl\Zoo_Managment_System\Debug\Zoo_Managment_System.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Zuzu\Desktop\זהר\אפקה\שנה ג\סמסטר קיץ\C++\פרוייקט\OtherStudentsImpl\Zoo_Managment_System\Debug\Zoo_Managment_System.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Zuzu\Desktop\זהר\אפקה\שנה ג\סמסטר קיץ\C++\פרוייקט\OtherStudentsImpl\Zoo_Managment_System\Debug\Zoo_Managment_System.lib" /MACHINE:X86 Debug\Animal.obj
+         Debug\Area.obj
          Debug\AreaManager.obj
+         Debug\Elephant.obj
+         Debug\Giraffe.obj
+         Debug\Horse.obj
          Debug\Keeper.obj
+         Debug\Lion.obj
          Debug\main.obj
          Debug\MaintenanceWorker.obj
+         Debug\Penguin.obj
          Debug\Veterinarian.obj
          Debug\Worker.obj
+         Debug\Zebra.obj
+         Debug\Zebroid.obj
          Debug\Zoo.obj
-     1>AreaManager.obj : error LNK2005: "private: static long Worker::idCounter" (?idCounter@Worker@@0JA) already defined in Area.obj
-     1>Keeper.obj : error LNK2005: "private: static long Worker::idCounter" (?idCounter@Worker@@0JA) already defined in Area.obj
-     1>main.obj : error LNK2005: "private: static long Worker::idCounter" (?idCounter@Worker@@0JA) already defined in Area.obj
-     1>MaintenanceWorker.obj : error LNK2005: "private: static long Worker::idCounter" (?idCounter@Worker@@0JA) already defined in Area.obj
-     1>Veterinarian.obj : error LNK2005: "private: static long Worker::idCounter" (?idCounter@Worker@@0JA) already defined in Area.obj
-     1>Worker.obj : error LNK2005: "private: static long Worker::idCounter" (?idCounter@Worker@@0JA) already defined in Area.obj
-     1>Zoo.obj : error LNK2005: "private: static long Worker::idCounter" (?idCounter@Worker@@0JA) already defined in Area.obj
-     1>Area.obj : error LNK2019: unresolved external symbol "public: __thiscall Animal::~Animal(void)" (??1Animal@@QAE@XZ) referenced in function "public: void * __thiscall Animal::`scalar deleting destructor'(unsigned int)" (??_GAnimal@@QAEPAXI@Z)
-     1>main.obj : error LNK2001: unresolved external symbol "public: __thiscall Animal::~Animal(void)" (??1Animal@@QAE@XZ)
-     1>Area.obj : error LNK2019: unresolved external symbol "class std::basic_ostream<char,struct std::char_traits<char> > & __cdecl operator<<(class std::basic_ostream<char,struct std::char_traits<char> > &,class Animal const &)" (??6@YAAAV?$basic_ostream@DU?$char_traits@D@std@@@std@@AAV01@ABVAnimal@@@Z) referenced in function "class std::basic_ostream<char,struct std::char_traits<char> > & __cdecl operator<<(class std::basic_ostream<char,struct std::char_traits<char> > &,class Area const &)" (??6@YAAAV?$basic_ostream@DU?$char_traits@D@std@@@std@@AAV01@ABVArea@@@Z)
-     1>C:\Users\Zuzu\Desktop\זהר\אפקה\שנה ג\סמסטר קיץ\C++\פרוייקט\OtherStudentsImpl\Zoo_Managment_System\Debug\Zoo_Managment_System.exe : fatal error LNK1120: 2 unresolved externals
-     1>Done Building Project "C:\Users\Zuzu\Desktop\זהר\אפקה\שנה ג\סמסטר קיץ\C++\פרוייקט\OtherStudentsImpl\Zoo_Managment_System\Zoo_Managment_System\Zoo_Managment_System.vcxproj" (Build target(s)) -- FAILED.
+         Zoo_Managment_System.vcxproj -> C:\Users\Zuzu\Desktop\זהר\אפקה\שנה ג\סמסטר קיץ\C++\פרוייקט\OtherStudentsImpl\Zoo_Managment_System\Debug\Zoo_Managment_System.exe
+     1>Done Building Project "C:\Users\Zuzu\Desktop\זהר\אפקה\שנה ג\סמסטר קיץ\C++\פרוייקט\OtherStudentsImpl\Zoo_Managment_System\Zoo_Managment_System\Zoo_Managment_System.vcxproj" (Build target(s)).
 
-Build FAILED.
+Build succeeded.
 
-Time Elapsed 00:00:00.80
+Time Elapsed 00:00:01.98

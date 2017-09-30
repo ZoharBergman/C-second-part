@@ -15,19 +15,16 @@ class Horse : virtual public Animal
 {
 
 private:
-    
     float sizeOfHorseShoe;
     Horse(const Horse& horse);
     const Horse& operator=(const Horse& horse);
 
 public:
-    
 	Horse(const char *name, float weight, int birthYear, float sizeOfHorseShoe);        
     
-    inline int getSizeOfHorseShoe() const;
+	inline float getSizeOfHorseShoe() const { return sizeOfHorseShoe; }
     
-    friend ostream& operator<<(ostream& os, const Horse& horse);
-    
+    virtual void toOs(ostream& os) const;
 };
 
 

@@ -21,7 +21,6 @@ class Area
 {
 
 private:
-
 	char *name;
 	int numOfAnimals;
 	int maxNumberOfAnimals;
@@ -46,7 +45,8 @@ public:
 	inline long getNumOfWorkers() const { return numOfWorkers; }
 	inline long getMaxNumberOfWorkers() const { return maxNumberOfWorkers; }
 
-	inline const AreaManager& getAreaManager() const { return *areaManager; }
+	inline const AreaManager* getAreaManager() const { return areaManager; }
+	inline AreaManager* getAreaManager() { return areaManager; }
 	void setAreaManager(AreaManager* areaManager);
 
 	void addAnimal(Animal* animal);
@@ -57,6 +57,9 @@ public:
 
 	const Animal*const* getAllAnimals() const { return animals; }
 	const Worker*const* getAllworkers() const { return workers; }
+
+	Animal*const* getAllAnimals() { return animals; }
+	Worker*const* getAllworkers() { return workers; }
 
 	const Area& operator+=(Animal* animal) { addAnimal(animal); return *this; }
 
