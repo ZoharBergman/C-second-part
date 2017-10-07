@@ -51,41 +51,49 @@ void Area::setAreaManager(AreaManager* newAreaManager)
 	}
 }
 
-void Area::addAnimal(Animal* animal)
+void Area::addAnimal(Animal* animal) throw (const char*)
 {
 	// Checking that there is enough place for another animal
 	if (numOfAnimals < maxNumberOfAnimals)
 	{
 		// Checking that the animal does not exists in this area
-		if (animal != nullptr && isAnimalExists(animal) == -1)
+		if (animal != nullptr && isAnimalExists(animal) == NOT_FOUND)
 		{
 			animals[numOfAnimals++] = animal;
 		}
 	}
+	else
+	{
+		throw "The number of animals in this area is the max";
+	}
 }
 
-void Area::addWorker(Worker* worker)
+void Area::addWorker(Worker* worker) throw (const char*)
 {
 	// Checking that there is enough place for another wotker
 	if (numOfWorkers < maxNumberOfWorkers)
 	{
 		// Checking that the worker does not exists in this area
-		if (worker != nullptr && isWorkerExists(worker) == -1)
+		if (worker != nullptr && isWorkerExists(worker) == NOT_FOUND)
 		{
 			workers[numOfWorkers++] = worker;
 			worker->setArea(this);
 		}
 	}
+	else
+	{
+		throw "The number of workers in this area is the max";
+	}
 }
 
-void Area::removeAnimal(const Animal* animal)
+void Area::removeAnimal(const Animal* animal) throw (const char*)
 {
 	if (animal != nullptr)
 	{
 		int animalIndex = isAnimalExists(animal);
 
 		// In case the animal exists, we should reduce the array of animals according to the index of the removed animal
-		if(animalIndex != -1)
+		if(animalIndex != NOT_FOUND)
 		{
 			while (animalIndex < numOfAnimals - 1)
 			{
@@ -94,16 +102,20 @@ void Area::removeAnimal(const Animal* animal)
 
 			numOfAnimals--;
 		}
+		else
+		{
+			throw "This animal does not exists in this area";
+		}
 	}
 }
-void Area::removeWorker(const Worker* worker)
+void Area::removeWorker(const Worker* worker) throw (const char *)
 {
 	if (worker != nullptr)
 	{
 		int workerIndex = isWorkerExists(worker);
 
 		// In case the worker exists, we should reduce the array of workers according to the index of the removed worker
-		if(workerIndex != -1)
+		if(workerIndex != NOT_FOUND)
 		{
 			while (workerIndex < numOfWorkers - 1)
 			{
@@ -111,6 +123,10 @@ void Area::removeWorker(const Worker* worker)
 			}			
 
 			numOfWorkers--;
+		}
+		else
+		{
+			throw "This worker does not exists in this area";
 		}
 	}
 }
@@ -123,7 +139,7 @@ int Area::isWorkerExists(const Worker* worker)
 			return i;
 	}
 
-	return -1;
+	return NOT_FOUND;
 }
 
 int Area::isAnimalExists(const Animal* animal)
@@ -134,7 +150,7 @@ int Area::isAnimalExists(const Animal* animal)
 			return i;
 	}
 
-	return -1;
+	return NOT_FOUND;
 }
 
 ostream& operator<<(ostream& os, const Area& area)

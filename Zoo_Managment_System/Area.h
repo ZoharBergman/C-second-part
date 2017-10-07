@@ -29,6 +29,9 @@ private:
 	AreaManager* areaManager;
 	Animal** animals;
 	Worker** workers;
+
+	const static int NOT_FOUND = -1;
+
 	Area(const Area& area);
 	const Area& operator=(const Area& area);
 
@@ -49,11 +52,11 @@ public:
 	inline AreaManager* getAreaManager() { return areaManager; }
 	void setAreaManager(AreaManager* areaManager);
 
-	void addAnimal(Animal* animal);
-	void addWorker(Worker* worker);
+	void addAnimal(Animal* animal) throw (const char*);
+	void addWorker(Worker* worker) throw (const char*);
 
-	void removeAnimal(const Animal* animal);
-	void removeWorker(const Worker* worker);
+	void removeAnimal(const Animal* animal) throw (const char *);
+	void removeWorker(const Worker* worker) throw (const char *);
 
 	const Animal*const* getAllAnimals() const { return animals; }
 	const Worker*const* getAllworkers() const { return workers; }
@@ -61,7 +64,7 @@ public:
 	Animal*const* getAllAnimals() { return animals; }
 	Worker*const* getAllworkers() { return workers; }
 
-	const Area& operator+=(Animal* animal) { addAnimal(animal); return *this; }
+	const Area& operator+=(Animal* animal) throw (const char *) { addAnimal(animal); return *this; }
 
 	bool operator<(const Area& other) const { return this->getMaxNumberOfAnimals() < other.getMaxNumberOfAnimals(); }
 

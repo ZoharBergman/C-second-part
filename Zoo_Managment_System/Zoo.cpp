@@ -17,33 +17,43 @@ Zoo::~Zoo()
 	delete[]areas;
 }
 
-void Zoo::addArea(Area& area)
+void Zoo::addArea(Area& area) throw (const char *)
 {
 	if (numOfAreas < maxNumOfAreas)
 	{
 		areas[numOfAreas++] = &area;
 	}
-}
-
-void Zoo::addAnimal(Animal& animal, const char* areaName)
-{
-	for (int i = 0; i < numOfAreas; i++)
+	else
 	{
-		if (strcmp(areas[i]->getName(), areaName) == 0)
-		{
-			areas[i]->addAnimal(&animal);
-		}
+		throw "The number of areas in this zoo is max";
 	}
 }
 
-void Zoo::addWorker(Worker& worker, const char* areaName)
+void Zoo::addAnimal(Animal& animal, const char* areaName) throw (const char *)
 {
-	for (int i = 0; i < numOfAreas; i++)
+	int areaIndex = getAreaByName(areaName);
+
+	if (areaIndex != NOT_FOUND)
 	{
-		if (strcmp(areas[i]->getName(), areaName) == 0)
-		{
-			areas[i]->addWorker(&worker);
-		}
+		areas[areaIndex]->addAnimal(&animal);
+	}
+	else
+	{
+		throw "This area name does not exists in this zoo";
+	}
+}
+
+void Zoo::addWorker(Worker& worker, const char* areaName) throw (const char *)
+{
+	int areaIndex = getAreaByName(areaName);
+
+	if (areaIndex != NOT_FOUND)
+	{
+		areas[areaIndex]->addWorker(&worker);
+	}
+	else
+	{
+		throw "This area name does not exists in this zoo";
 	}
 }
 
@@ -65,4 +75,17 @@ ostream& operator<<(ostream& os, const Zoo& zoo)
 		}
 	} 
 	return os;
+}
+
+int Zoo::getAreaByName(const char* name) const
+{
+	for (int i = 0; i < numOfAreas; i++)
+	{
+		if (strcmp(areas[i]->getName(), name) == 0)
+		{
+			return i;
+		}
+	}
+
+	return NOT_FOUND;
 }

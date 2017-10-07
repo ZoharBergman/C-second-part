@@ -24,6 +24,9 @@ private:
     int numOfAreas;
     Area** areas;
 
+	const static int NOT_FOUND = -1;
+	int getAreaByName(const char* name) const;
+
 public:
     
     Zoo(const char* name, int maxNumOfAreas);
@@ -34,16 +37,16 @@ public:
 	int getMaxNumOfAreas() const { return maxNumOfAreas; }
 	int getNumOfAreas() const { return numOfAreas; }
     
-    void addArea(Area& area);
+    void addArea(Area& area) throw (const char *);
     
-    void addAnimal(Animal& animal, const char* areaName);
+    void addAnimal(Animal& animal, const char* areaName) throw (const char *);
     
-    void addWorker(Worker& worker, const char* areaName);
+    void addWorker(Worker& worker, const char* areaName) throw (const char *);
     
 	const Area*const* getAllAreas() const { return areas; }
 	Area*const* getAllAreas() { return areas; }
     
-	const Zoo& operator+(Area& area) { addArea(area); return *this; }
+	const Zoo& operator+(Area& area) throw (const char *) { addArea(area); return *this; }
     
 	const Area& operator[](int index) const { return *areas[index]; }
     
