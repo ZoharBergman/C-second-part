@@ -56,7 +56,7 @@ public:
 	void addWorker(Worker* worker) throw (const char*);
 
 	void removeAnimal(const Animal* animal) throw (const char *);
-	void removeWorker(const Worker* worker) throw (const char *);
+	void removeWorker(Worker* worker) throw (const char *);
 
 	const Animal*const* getAllAnimals() const { return animals; }
 	const Worker*const* getAllworkers() const { return workers; }

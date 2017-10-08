@@ -13,15 +13,6 @@ void Worker::setArea(Area* newArea)
 	// Checking that the areas are different
 	if(area != newArea)
 	{
-		// Remove this worker from the old area
-		if(area != nullptr)
-		{
-			if (typeid(*this) != typeid(AreaManager))
-			{
-				area->removeWorker(this);
-			}
-		}
-
 		// Setting the area of this worker to the new area
 		area = newArea;
 

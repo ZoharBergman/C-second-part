@@ -72,6 +72,13 @@ int main(int argc, const char * argv[]) {
 
 		// print the whole zoo
 		cout << myZoo << endl;
+
+		// free all memory
+		freeAllAnimals(animals, numOfAnimals);
+		freeAllAreaManagers(managers, numOfManagers);
+		freeAllAreas(areas, numOfAreas);
+		freeAllKeepers(keepers, numOfKeepers);
+		freeAllVeterinarian(vets, numOfVeterinarian);
 	}
 	catch (const char* e)
 	{

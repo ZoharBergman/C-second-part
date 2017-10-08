@@ -9,11 +9,6 @@ Zoo::~Zoo()
 {
 	delete[]name;
 
-	for (int i = 0; i < numOfAreas; i++)
-	{
-		delete areas[i];
-	}
-
 	delete[]areas;
 }
 
@@ -73,7 +68,8 @@ ostream& operator<<(ostream& os, const Zoo& zoo)
 			if (i < zoo.getNumOfAreas() - 1)
 				os << "," << endl;
 		}
-	} 
+	}
+
 	return os;
 }
 

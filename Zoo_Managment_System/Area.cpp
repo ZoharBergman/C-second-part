@@ -13,24 +13,9 @@ Area::~Area()
 {
 	delete[]name;
 
-	// Delete animals
-	for (int i = 0; i < numOfAnimals; i++)
-	{
-		delete animals[i];
-	}
-
 	delete[]animals;
 
-	// Delete workers
-	for (int i = 0; i < numOfWorkers; i++)
-	{
-		delete workers[i];
-	}
-
-	delete[]workers;	
-
-	// Delete area manager
-	delete areaManager;
+	delete[]workers;
 }
 
 void Area::setAreaManager(AreaManager* newAreaManager)
@@ -108,7 +93,7 @@ void Area::removeAnimal(const Animal* animal) throw (const char*)
 		}
 	}
 }
-void Area::removeWorker(const Worker* worker) throw (const char *)
+void Area::removeWorker(Worker* worker) throw (const char *)
 {
 	if (worker != nullptr)
 	{
@@ -117,11 +102,13 @@ void Area::removeWorker(const Worker* worker) throw (const char *)
 		// In case the worker exists, we should reduce the array of workers according to the index of the removed worker
 		if(workerIndex != NOT_FOUND)
 		{
+			worker->setArea(nullptr);
+
 			while (workerIndex < numOfWorkers - 1)
 			{
 				workers[workerIndex++] = workers[workerIndex + 1];
 			}			
-
+			
 			numOfWorkers--;
 		}
 		else
