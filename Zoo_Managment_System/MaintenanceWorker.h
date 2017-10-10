@@ -14,13 +14,13 @@
 class MaintenanceWorker : public Worker
 {
 private:
+	// Deleted methods
 	MaintenanceWorker(const MaintenanceWorker& maintenanceWorker);
     const MaintenanceWorker& operator=(const MaintenanceWorker& maintenanceWorker);
 
 public:
+	// Ctor
 	MaintenanceWorker(const char *name, int salary, Area* area = nullptr);       
-    
 };
-
 
 #endif /* __MAINTENANCE_WORKER_H */

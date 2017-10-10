@@ -15,26 +15,30 @@ using namespace std;
 
 class Animal
 {
-    
 private:
+	// Attributes
     char *name;
     float weight;
     int birthYear;
+
+	// Deleted methods
 	Animal(const Animal& animal);
     const Animal& operator=(const Animal& animal);
     
 public:
+	// Ctor & Dtor
 	Animal(float weight, int birthYear, const char *name = nullptr);
 	virtual ~Animal() { delete []name; }
     
+	// Getters & Setters
 	inline const char* getName() const { return name; }
+    inline float getWeight() const { return weight; }
+    inline int getBirthYear() const { return birthYear; }
     
-	inline float getWeight() const { return weight; }
-    
-	inline int getBirthYear() const { return birthYear; }
-    
+	// Operators
     friend ostream& operator<<(ostream& os, const Animal& animal);
 
+	// Methods
 	virtual void toOs(ostream& os) const {};
 };
 

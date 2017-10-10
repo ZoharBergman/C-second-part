@@ -13,19 +13,23 @@
 
 class Horse : virtual public Animal
 {
-
 private:
+	// Attributes
     float sizeOfHorseShoe;
+
+	// Deleted methods
     Horse(const Horse& horse);
     const Horse& operator=(const Horse& horse);
 
 public:
+	// Ctor
 	Horse(const char *name, float weight, int birthYear, float sizeOfHorseShoe);        
     
+	// Getters
 	inline float getSizeOfHorseShoe() const { return sizeOfHorseShoe; }
     
+	// Methods
     virtual void toOs(ostream& os) const;
 };
-
 
 #endif /* __HOURSE_H */

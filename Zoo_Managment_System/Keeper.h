@@ -14,20 +14,27 @@
 class Keeper : public Worker
 {
 public:
+	// Static consts
 	static const enum eAnimal {LION, PENGUIN, ELEPHANT, GIRAFFE, ZEBRA, HORSE, ZEBROID};
 	static const char* eAnimalsNames[];
+
 private:
+	// Attributes
 	eAnimal specialty;
+
+	// Deleted methods
 	Keeper(const Keeper& keeper);
 	const Keeper& operator=(const Keeper& keeper);
 
 public:
+	// Ctor
 	Keeper(const char *name, int salary, eAnimal specialty, Area* area = nullptr);	
-
+	
+	// Getters
 	inline eAnimal getSpecialty() const { return specialty; }
 	
+	// Methods
 	virtual void toOs(ostream& os) const;
 };
-
 
 #endif /* __KEEPER_H */

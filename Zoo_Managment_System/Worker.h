@@ -18,32 +18,36 @@ class Area;
 class Worker
 {
 protected:	
+	// Attributes
 	static long idCounter;
 	char *name;
     long idNumber;
     int salary;
 	Area* area;
+
+	// Deleted methods
     Worker(const Worker& worker);
     const Worker& operator=(const Worker& worker);
 
 public:
-    
+    // Ctor & Dtor
 	Worker(const char *name, int salary, Area* area = nullptr);
 	virtual ~Worker(){ delete []name; }        
     
+	// Getters & Setters
 	inline const char* getName() const { return name; }
-    
-	inline long getIdNumber() const { return idNumber; }
-    
-	inline int getSalary() const { return salary; }
-	void setSalary(int salary) { this->salary = salary; }
-    
+    inline long getIdNumber() const { return idNumber; }
+    inline int getSalary() const { return salary; }
 	inline const Area& getArea() const { return *area; }
 	inline Area& getArea() { return *area; }
+	
+	void setSalary(int salary) { this->salary = salary; }    
 	virtual void setArea(Area* newArea);
     
+	// Operators
     friend ostream& operator<<(ostream& os, const Worker& worker);
 
+	// Methods
 	virtual void toOs(ostream& os) const {};
 };
 

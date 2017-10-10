@@ -14,21 +14,27 @@
 class Lion : public Animal
 {
 public:
+	// Static consts
 	const static enum eManeColor { WHITE, BROWN, YELLOW, RED, ORANGE };
 	const static char* eManeColorText[];
 
 private:
+	// Attributes
 	eManeColor maneColor;
+
+	// Deleted methods
 	Lion(const Lion& lion);
 	const Lion& operator=(const Lion& lion);
 
 public:
+	// Ctor
 	Lion(const char *name, float weight, int birthYear, eManeColor maneColor);        
 
+	// Getters
 	inline eManeColor getManeColor() const { return maneColor; }
 
+	// Methods
 	virtual void toOs(ostream& os) const;
 };
-
 
 #endif /* __LION_H */

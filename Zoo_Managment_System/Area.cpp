@@ -93,6 +93,7 @@ void Area::removeAnimal(const Animal* animal) throw (const char*)
 		}
 	}
 }
+
 void Area::removeWorker(Worker* worker) throw (const char *)
 {
 	if (worker != nullptr)

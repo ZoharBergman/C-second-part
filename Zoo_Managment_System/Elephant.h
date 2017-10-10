@@ -14,23 +14,25 @@
 
 class Elephant : public Animal
 {
-
 private:
-    
+	// Attributes   
     float sizeOfEars;
     float lengthOfTrunk;
+
+	// Deleted methods
     Elephant(const Elephant& elephant);
     const Elephant& operator=(const Elephant& elephant);
 
 public:
-    
+    // Ctor
 	Elephant(const char *name, float weight, int birthYear, float sizeOfEars, float lengthOfTrunk);
     
+	// Getters
 	inline float getSizeOfEars() const { return sizeOfEars; }
 	inline float getLengthOfTrunk() const { return lengthOfTrunk; }
     
+	// Methods
 	virtual void toOs(ostream& os) const;    
-    
 };
 
 #endif /* __ELEPHANT_H */
