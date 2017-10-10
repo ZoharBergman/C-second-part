@@ -21,10 +21,9 @@ private:
 public:
     Veterinarian(const char *name, int salary, int yearsOfExperience, Area* area = nullptr);       
     
-	inline int getYearsOfExperience() const { return yearsOfExperience; }
+	inline int getYearsOfExperience() const { return yearsOfExperience; }    
     
-    friend ostream& operator<<(ostream& os, const Veterinarian& veterinarian);
-    
+	virtual void toOs(ostream& os) const;
 };
 
 #endif /* __VETERINARIAN_H */

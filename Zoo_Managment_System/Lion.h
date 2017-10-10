@@ -11,22 +11,23 @@
 
 #include "Animal.h"
 
-const static enum eManeColor { WHITE, BROWN, YELLOW, RED, ORANGE };
-const static char* eManeColorText[] = {"White", "Brown", "Yellow", "Red", "Orange"};
-
 class Lion : public Animal
 {
+public:
+	const static enum eManeColor { WHITE, BROWN, YELLOW, RED, ORANGE };
+	const static char* eManeColorText[];
+
 private:
-    eManeColor maneColor;
-    Lion(const Lion& lion);
-    const Lion& operator=(const Lion& lion);
+	eManeColor maneColor;
+	Lion(const Lion& lion);
+	const Lion& operator=(const Lion& lion);
 
 public:
 	Lion(const char *name, float weight, int birthYear, eManeColor maneColor);        
-    
+
 	inline eManeColor getManeColor() const { return maneColor; }
-    
-    virtual void toOs(ostream& os) const;
+
+	virtual void toOs(ostream& os) const;
 };
 
 

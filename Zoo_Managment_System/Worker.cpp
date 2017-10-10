@@ -28,8 +28,9 @@ ostream& operator<<(ostream& os, const Worker& worker)
 {
 	if (&worker != nullptr)
 	{
-		os << typeid(worker).name()+6 << ": Name: " << worker.getName() << ", Id number: " << worker.getIdNumber() 
+		os << typeid(worker).name()+6 << "--> Name: " << worker.getName() << ", Id number: " << worker.getIdNumber() 
 			<< ", Salary: " << worker.getSalary();
+		worker.toOs(os);
 	}
 
 	return os;

@@ -1,5 +1,7 @@
 #include "Lion.h"
 
+const char* Lion::eManeColorText[] = {"White", "Brown", "Yellow", "Red", "Orange"};
+
 Lion::Lion(const char *name, float weight, int birthYear, eManeColor maneColor) :
 								Animal(weight, birthYear, name), maneColor(maneColor){}
 

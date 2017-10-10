@@ -26,7 +26,7 @@ void Zoo::addArea(Area& area) throw (const char *)
 
 void Zoo::addAnimal(Animal& animal, const char* areaName) throw (const char *)
 {
-	int areaIndex = getAreaByName(areaName);
+	int areaIndex = getAreaIndexByName(areaName);
 
 	if (areaIndex != NOT_FOUND)
 	{
@@ -40,7 +40,7 @@ void Zoo::addAnimal(Animal& animal, const char* areaName) throw (const char *)
 
 void Zoo::addWorker(Worker& worker, const char* areaName) throw (const char *)
 {
-	int areaIndex = getAreaByName(areaName);
+	int areaIndex = getAreaIndexByName(areaName);
 
 	if (areaIndex != NOT_FOUND)
 	{
@@ -73,7 +73,7 @@ ostream& operator<<(ostream& os, const Zoo& zoo)
 	return os;
 }
 
-int Zoo::getAreaByName(const char* name) const
+int Zoo::getAreaIndexByName(const char* name) const
 {
 	for (int i = 0; i < numOfAreas; i++)
 	{

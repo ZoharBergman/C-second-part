@@ -6,7 +6,7 @@ ostream& operator<<(ostream& os, const Animal& animal)
 {
 	if (&animal != nullptr)
 	{
-		os << "Name: " << animal.getName() << ", Weight: " << animal.getWeight() << ", Birth year: " << animal.getBirthYear();
+		os << typeid(animal).name()+6 << "--> Name: " << animal.getName() << ", Weight: " << animal.getWeight() << ", Birth year: " << animal.getBirthYear();
 		animal.toOs(os);
 	}
 

@@ -11,12 +11,11 @@
 
 #include "Worker.h"
 
-const static int ANIMALS_SIZE = 7;
-const static enum eAnimal {LION, PENGUIN, ELEPHANT, GIRAFFE, ZEBRA, HORSE, ZEBROID};
-const static char* eAnimalsNames[ANIMALS_SIZE] = {"Lion", "Penguin", "Elephant", "Giraffe", "Zebra", "Horse", "Zebroid"};
-
 class Keeper : public Worker
 {
+public:
+	static const enum eAnimal {LION, PENGUIN, ELEPHANT, GIRAFFE, ZEBRA, HORSE, ZEBROID};
+	static const char* eAnimalsNames[];
 private:
 	eAnimal specialty;
 	Keeper(const Keeper& keeper);
@@ -26,8 +25,8 @@ public:
 	Keeper(const char *name, int salary, eAnimal specialty, Area* area = nullptr);	
 
 	inline eAnimal getSpecialty() const { return specialty; }
-
-	friend ostream& operator<<(ostream& os, const Keeper& keeper);
+	
+	virtual void toOs(ostream& os) const;
 };
 
 

@@ -11,11 +11,12 @@
 
 #include "Animal.h"
 
-const static enum eSeaFood { SHRIMP, CRAB, FISH, CALAMARI };
-const static char* eSeaFoodText[] = {"Shrimp", "Crab", "Fish", "Calamari"};
-
 class Penguin : public Animal
 {
+public:
+	const static enum eSeaFood { SHRIMP, CRAB, FISH, CALAMARI };
+	const static char* eSeaFoodText[];
+
 private:
     
     eSeaFood favoriteFood;

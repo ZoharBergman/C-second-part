@@ -75,8 +75,8 @@ public:
 	friend ostream& operator<<(ostream& os, const Area& area);
 
 private:
-	int isWorkerExists(const Worker* worker);
-	int isAnimalExists(const Animal* animal);
+	int isWorkerExists(const Worker* worker) const;
+	int isAnimalExists(const Animal* animal) const;
 };
 
 

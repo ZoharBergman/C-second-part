@@ -43,7 +43,8 @@ public:
 	virtual void setArea(Area* newArea);
     
     friend ostream& operator<<(ostream& os, const Worker& worker);
-    
+
+	virtual void toOs(ostream& os) const {};
 };
 
 #endif /* __WORKER_H */

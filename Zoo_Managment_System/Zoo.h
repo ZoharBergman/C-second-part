@@ -18,14 +18,15 @@ using namespace std;
 class Zoo
 {
 private:
-    
+    const static int NOT_FOUND = -1;
+
     char* name;
     int maxNumOfAreas;
     int numOfAreas;
     Area** areas;
 
-	const static int NOT_FOUND = -1;
-	int getAreaByName(const char* name) const;
+	Zoo(const Zoo* other);
+	const Zoo& operator=(const Zoo& other);
 
 public:
     
@@ -46,11 +47,14 @@ public:
 	const Area*const* getAllAreas() const { return areas; }
 	Area*const* getAllAreas() { return areas; }
     
-	const Zoo& operator+(Area& area) throw (const char *) { addArea(area); return *this; }
+	const Zoo& operator+=(Area& area) throw (const char *) { addArea(area); return *this; }
     
 	const Area& operator[](int index) const { return *areas[index]; }
     
     friend ostream& operator<<(ostream& os, const Zoo& zoo);
+
+private:
+	int getAreaIndexByName(const char* name) const;
 };
 
 

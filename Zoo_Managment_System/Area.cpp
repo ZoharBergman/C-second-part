@@ -118,7 +118,7 @@ void Area::removeWorker(Worker* worker) throw (const char *)
 	}
 }
 
-int Area::isWorkerExists(const Worker* worker)
+int Area::isWorkerExists(const Worker* worker) const
 {
 	for (int i = 0; i < numOfWorkers; i++)
 	{
@@ -129,7 +129,7 @@ int Area::isWorkerExists(const Worker* worker)
 	return NOT_FOUND;
 }
 
-int Area::isAnimalExists(const Animal* animal)
+int Area::isAnimalExists(const Animal* animal) const
 {
 	for (int i = 0; i < numOfAnimals; i++)
 	{
