@@ -1,8 +1,17 @@
-﻿Build started 10/10/2017 17:12:18.
+﻿Build started 14/10/2017 17:40:08.
      1>Project "C:\Users\Zuzu\Desktop\זהר\אפקה\שנה ג\סמסטר קיץ\C++\פרוייקט\OtherStudentsImpl\Zoo_Managment_System\Zoo_Managment_System\Zoo_Managment_System.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt Zebroid.cpp
-         Zebroid.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt Area.cpp
+         Area.cpp
+     1>c:\users\zuzu\desktop\זהר\אפקה\שנה ג\סמסטר קיץ\c++\פרוייקט\otherstudentsimpl\zoo_managment_system\zoo_managment_system\area.h(62): warning C4290: C++ exception specification ignored except to indicate a function is not __declspec(nothrow)
+     1>c:\users\zuzu\desktop\זהר\אפקה\שנה ג\סמסטר קיץ\c++\פרוייקט\otherstudentsimpl\zoo_managment_system\zoo_managment_system\area.h(63): warning C4290: C++ exception specification ignored except to indicate a function is not __declspec(nothrow)
+     1>c:\users\zuzu\desktop\זהר\אפקה\שנה ג\סמסטר קיץ\c++\פרוייקט\otherstudentsimpl\zoo_managment_system\zoo_managment_system\area.h(64): warning C4290: C++ exception specification ignored except to indicate a function is not __declspec(nothrow)
+     1>c:\users\zuzu\desktop\זהר\אפקה\שנה ג\סמסטר קיץ\c++\פרוייקט\otherstudentsimpl\zoo_managment_system\zoo_managment_system\area.h(65): warning C4290: C++ exception specification ignored except to indicate a function is not __declspec(nothrow)
+     1>c:\users\zuzu\desktop\זהר\אפקה\שנה ג\סמסטר קיץ\c++\פרוייקט\otherstudentsimpl\zoo_managment_system\zoo_managment_system\area.h(68): warning C4290: C++ exception specification ignored except to indicate a function is not __declspec(nothrow)
+     1>c:\users\zuzu\desktop\זהר\אפקה\שנה ג\סמסטר קיץ\c++\פרוייקט\otherstudentsimpl\zoo_managment_system\zoo_managment_system\area.cpp(39): warning C4290: C++ exception specification ignored except to indicate a function is not __declspec(nothrow)
+     1>c:\users\zuzu\desktop\זהר\אפקה\שנה ג\סמסטר קיץ\c++\פרוייקט\otherstudentsimpl\zoo_managment_system\zoo_managment_system\area.cpp(56): warning C4290: C++ exception specification ignored except to indicate a function is not __declspec(nothrow)
+     1>c:\users\zuzu\desktop\זהר\אפקה\שנה ג\סמסטר קיץ\c++\פרוייקט\otherstudentsimpl\zoo_managment_system\zoo_managment_system\area.cpp(74): warning C4290: C++ exception specification ignored except to indicate a function is not __declspec(nothrow)
+     1>c:\users\zuzu\desktop\זהר\אפקה\שנה ג\סמסטר קיץ\c++\פרוייקט\otherstudentsimpl\zoo_managment_system\zoo_managment_system\area.cpp(97): warning C4290: C++ exception specification ignored except to indicate a function is not __declspec(nothrow)
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Zuzu\Desktop\זהר\אפקה\שנה ג\סמסטר קיץ\C++\פרוייקט\OtherStudentsImpl\Zoo_Managment_System\Debug\Zoo_Managment_System.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Zuzu\Desktop\זהר\אפקה\שנה ג\סמסטר קיץ\C++\פרוייקט\OtherStudentsImpl\Zoo_Managment_System\Debug\Zoo_Managment_System.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Zuzu\Desktop\זהר\אפקה\שנה ג\סמסטר קיץ\C++\פרוייקט\OtherStudentsImpl\Zoo_Managment_System\Debug\Zoo_Managment_System.lib" /MACHINE:X86 Debug\Animal.obj
          Debug\Area.obj
@@ -25,4 +34,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:00.93
+Time Elapsed 00:00:00.85

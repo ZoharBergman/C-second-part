@@ -146,7 +146,8 @@ ostream& operator<<(ostream& os, const Area& area)
 	if (&area != nullptr)
 	{
 		os << "Name: " << area.getName() << ", Max number of animals: " << area.getMaxNumberOfAnimals() << ", Number of animals: " << area.getNumOfAnimals()
-			<< ", Max number of workers: " << area.getMaxNumberOfWorkers() << ", Number of workers: " << area.getNumOfWorkers() << ", Area manager: {" << *area.getAreaManager() << "}, Animals: {";
+			<< ", Max number of workers: " << area.getMaxNumberOfWorkers() << ", Number of workers: " << area.getNumOfWorkers() << ", Area manager: {" 
+			<< *area.getAreaManager() << "}, Animals: {";
 
 		const Animal*const* animals = area.getAllAnimals();
 
@@ -155,7 +156,10 @@ ostream& operator<<(ostream& os, const Area& area)
 			os << "{" << *(animals[i]) << "}, ";
 		}
 
-		os << '\b' << '\b';
+		if (area.getNumOfAnimals() > 0)
+		{
+			os << '\b' << '\b';
+		}
 
 		os << "}, Workers: {";
 
@@ -166,7 +170,10 @@ ostream& operator<<(ostream& os, const Area& area)
 			os << "{" << *(workers[i]) << "}, ";
 		}
 
-		os << '\b' << '\b';
+		if (area.getNumOfWorkers() > 0)
+		{
+			os << '\b' << '\b';
+		}
 
 		os << "}";
 	}

@@ -16,7 +16,7 @@ class Lion : public Animal
 public:
 	// Static consts
 	const static enum eManeColor { WHITE, BROWN, YELLOW, RED, ORANGE };
-	const static char* eManeColorText[];
+	const static char* MANE_COLOR_TEXT[];
 
 private:
 	// Attributes
